@@ -480,8 +480,10 @@ function round(){
 }
 
 function init(){
+    document.getElementById('score').innerHTML = null;
     speed = 1000;
     tetrisDirect = 0;
+    brickH = 20;
     brick = deepCopy([
         {x:0,y:20,color:bcolor},
         {x:1,y:20,color:bcolor},
