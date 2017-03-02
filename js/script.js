@@ -448,7 +448,7 @@ function tetris_land(){
                 brick_show();
                 clearInterval(tetris_id);
 
-                speed = 1100-level*100;
+                speed = 1200-level*200;
                 if(brickH < 1){
                     document.getElementById('score').innerHTML = 'Game Over';
                     return;
