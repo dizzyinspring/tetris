@@ -230,7 +230,7 @@ var brick = [
     {x:10,y:20,color:bcolor}
 ];
 var tetris_id;
-var speed = 1000;
+var speed;
 
 document.onkeydown = function(e){
     if(e && e.keyCode == 80 && state == 'g'){
@@ -448,7 +448,7 @@ function tetris_land(){
                 brick_show();
                 clearInterval(tetris_id);
 
-                speed = 1200-level*200;
+                speed = 800-level*100;
                 if(brickH < 1){
                     document.getElementById('score').innerHTML = 'Game Over';
                     return;
@@ -481,7 +481,7 @@ function round(){
 
 function init(){
     document.getElementById('score').innerHTML = null;
-    speed = 1000;
+    speed = 700;
     tetrisDirect = 0;
     brickH = 20;
     brick = deepCopy([
