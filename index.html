@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>俄罗斯方块</title>
+    <link rel = 'stylesheet' type = 'text/css' href = 'css/style.css'>
+</head>
+
+<body>
+<canvas id = 'board' width = '300px' height = '300px'></canvas>
+<p id = 'score'></p>
+<div id = 'buttondiv'>
+    <button  id = 'up' class = 'directbut' ontouchstart = "tetris_spin()"  value = '38'>↑</button>
+    <button  id = 'left' class = 'directbut' ontouchstart = "moveLeft()"  value = '37'>←</button>
+    <button  id = 'right' class = 'directbut' ontouchstart = "moveRight()"  value = '39'>→</button>
+    <button  id = 'down' class = 'directbut' ontouchstart = "fallDown()"  value = '40'>↓</button>
+</div>
+<button  id = 'restart'  onclick = "init()">restart</button>
+
+<script type = 'text/javascript' src = 'js/lib-script.js'></script>
+<script type = 'text/javascript' src = 'js/script.js'></script>
+</body>
+</html>
