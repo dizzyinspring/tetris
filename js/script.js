@@ -319,7 +319,7 @@ function tetris_spin(){
     brick_show();
 }
 function fallDown(){
-    speed = 50;
+    speed = 30;
     clearInterval(tetris_id);
     tetris_id = setInterval('tetris_fall()',speed);
     fresh();
