@@ -354,7 +354,7 @@ function removeLine(y){
 
 function checkHeight(){
     for(var i = 0;i<brick.length;i++)
-        if(brick[i].y<brickH)
+        if(brick[i].y<brickH && brick[i].x !== -1 && brick[i].x !== 10)
             brickH = brick[i].y;
 }
 
@@ -438,6 +438,10 @@ function tetris_land(){
                 clearInterval(tetris_id);
 
                 speed = 1100-level*100;
+                if(brickH < 1){
+                    document.getElementById('score').innerHTML = 'Game Over';
+                    return;
+                }
                 round();
             }
         }
