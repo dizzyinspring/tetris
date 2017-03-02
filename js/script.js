@@ -264,7 +264,9 @@ function moveLeft(){
                 tetris4[i][j].x = tetris4[i][j].x-1;
         tetris = cloneObj(tetris4[tetrisDirect]);
     }
-
+    fresh();
+    tetris_show();
+    brick_show();
 }
 
 function isMoveLeft(){
@@ -283,6 +285,9 @@ function moveRight(){
                 tetris4[i][j].x = tetris4[i][j].x+1;
         tetris = cloneObj(tetris4[tetrisDirect]);
     }
+    fresh();
+    tetris_show();
+    brick_show();
 }
 
 function isMoveRight(){
@@ -309,12 +314,19 @@ function tetris_spin(){
         for(i = 0;i<4;i++)
             tetris[i] = cloneObj(tetris4[tetrisDirect][i]);
     }
+    fresh();
+    tetris_show();
+    brick_show();
 }
 function fallDown(){
     speed = 50;
     clearInterval(tetris_id);
     tetris_id = setInterval('tetris_fall()',speed);
+    fresh();
+    tetris_show();
+    brick_show();
 }
+
 function brick_show(){
     for(var i = 0;i<brick.length;i++)
         block(brick[i].x,brick[i].y,brick[i].color);
@@ -328,6 +340,7 @@ function tetris_up(){
     tetris = cloneObj(tetris4[tetrisDirect]);
 
 }
+
 function fullLine(){
     var liney = [];
 
@@ -415,7 +428,6 @@ function tetris_land(){
                 textFresh();
                 tetris_up();
 
-
                 for(var n = 0;n<4;n++)
                     brick.push(tetris[n]);
                 checkHeight();
@@ -428,7 +440,6 @@ function tetris_land(){
                     }
                     addScore(liney.length);
                 }
-
 
                 level = Math.floor(lineRemoved/20)+1;
                 cxt.fillStyle = '#150509';
@@ -459,7 +470,6 @@ function tetris_land(){
  */
 
 function round(){
-
     tetris4 = deepCopy(next_tetris4);
     tetrisDirect = 0;
     tetris = deepCopy(tetris4[tetrisDirect]);
@@ -470,11 +480,8 @@ function round(){
 }
 
 function init(){
-
     speed = 1000;
-    tetris4 = tetris4.splice(0,tetris4.length);
     tetrisDirect = 0;
-
     brick = deepCopy([
         {x:0,y:20,color:bcolor},
         {x:1,y:20,color:bcolor},
@@ -533,7 +540,6 @@ function init(){
     ]);
     score = 0;
     lineRemoved = 0;
-
 
     random_tetris();
     random_nextTetris4();
