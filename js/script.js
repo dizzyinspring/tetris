@@ -538,9 +538,11 @@ function init(){
     random_tetris();
     random_nextTetris4();
     tetris = deepCopy(tetris4[tetrisDirect]);
+    fresh();
+    textFresh();
     tetris_show();
     brick_show();
-    textFresh();
+
     clearInterval(tetris_id);
     tetris_id = setInterval('tetris_fall()',speed);
 }
