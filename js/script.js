@@ -470,9 +470,78 @@ function round(){
 }
 
 function init(){
+
     speed = 1000;
+    tetris4 = tetris4.splice(0,tetris4.length);
+    tetrisDirect = 0;
+
+    brick = deepCopy([
+        {x:0,y:20,color:bcolor},
+        {x:1,y:20,color:bcolor},
+        {x:2,y:20,color:bcolor},
+        {x:3,y:20,color:bcolor},
+        {x:4,y:20,color:bcolor},
+        {x:5,y:20,color:bcolor},
+        {x:6,y:20,color:bcolor},
+        {x:7,y:20,color:bcolor},
+        {x:8,y:20,color:bcolor},
+        {x:9,y:20,color:bcolor},
+        {x:-1,y:-1,color:bcolor},
+        {x:-1,y:0,color:bcolor},
+        {x:-1,y:1,color:bcolor},
+        {x:-1,y:2,color:bcolor},
+        {x:-1,y:3,color:bcolor},
+        {x:-1,y:4,color:bcolor},
+        {x:-1,y:5,color:bcolor},
+        {x:-1,y:6,color:bcolor},
+        {x:-1,y:7,color:bcolor},
+        {x:-1,y:8,color:bcolor},
+        {x:-1,y:9,color:bcolor},
+        {x:-1,y:10,color:bcolor},
+        {x:-1,y:11,color:bcolor},
+        {x:-1,y:12,color:bcolor},
+        {x:-1,y:13,color:bcolor},
+        {x:-1,y:14,color:bcolor},
+        {x:-1,y:15,color:bcolor},
+        {x:-1,y:16,color:bcolor},
+        {x:-1,y:17,color:bcolor},
+        {x:-1,y:18,color:bcolor},
+        {x:-1,y:19,color:bcolor},
+        {x:-1,y:20,color:bcolor},
+        {x:10,y:-1,color:bcolor},
+        {x:10,y:0,color:bcolor},
+        {x:10,y:1,color:bcolor},
+        {x:10,y:2,color:bcolor},
+        {x:10,y:3,color:bcolor},
+        {x:10,y:4,color:bcolor},
+        {x:10,y:5,color:bcolor},
+        {x:10,y:6,color:bcolor},
+        {x:10,y:7,color:bcolor},
+        {x:10,y:8,color:bcolor},
+        {x:10,y:9,color:bcolor},
+        {x:10,y:10,color:bcolor},
+        {x:10,y:11,color:bcolor},
+        {x:10,y:12,color:bcolor},
+        {x:10,y:13,color:bcolor},
+        {x:10,y:14,color:bcolor},
+        {x:10,y:15,color:bcolor},
+        {x:10,y:16,color:bcolor},
+        {x:10,y:17,color:bcolor},
+        {x:10,y:18,color:bcolor},
+        {x:10,y:19,color:bcolor},
+        {x:10,y:20,color:bcolor}
+    ]);
+    score = 0;
+    lineRemoved = 0;
+
+
     random_tetris();
     random_nextTetris4();
+    tetris = deepCopy(tetris4[tetrisDirect]);
+    tetris_show();
+    brick_show();
+    textFresh();
+    clearInterval(tetris_id);
     tetris_id = setInterval('tetris_fall()',speed);
 }
 
