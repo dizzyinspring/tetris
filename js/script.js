@@ -233,6 +233,8 @@ var tetris_id;
 var speed;
 
 document.onkeydown = function(e){
+    if(state == 'f')
+        return;
     if(e && e.keyCode == 80 && state == 'g'){
         clearInterval(tetris_id);
         state = 'p';
@@ -258,6 +260,8 @@ document.onkeydown = function(e){
 };
 
 function moveLeft(){
+    if(state == 'f')
+        return;
     if(isMoveLeft()){
         for(var i = 0;i<tetris4.length;i++)
             for(var j = 0;j<4;j++)
@@ -279,6 +283,8 @@ function isMoveLeft(){
 }
 
 function moveRight(){
+    if(state == 'f')
+        return;
     if(isMoveRight()){
         for(i = 0;i<tetris4.length;i++)
             for(j = 0;j<4;j++)
@@ -309,6 +315,8 @@ function isSpinnable(){
 }
 
 function tetris_spin(){
+    if(state == 'f')
+        return;
     if(isSpinnable()){
         tetrisDirect = (tetrisDirect+1)%tetris4.length;
         for(i = 0;i<4;i++)
@@ -319,6 +327,8 @@ function tetris_spin(){
     brick_show();
 }
 function fallDown(){
+    if(state == 'f')
+        return;
     speed = 30;
     clearInterval(tetris_id);
     tetris_id = setInterval('tetris_fall()',speed);
@@ -451,6 +461,7 @@ function tetris_land(){
                 speed = 800-level*100;
                 if(brickH < 1){
                     document.getElementById('score').innerHTML = 'Game Over';
+                    state = 'f';
                     return;
                 }
                 round();
@@ -481,6 +492,7 @@ function round(){
 
 function init(){
     document.getElementById('score').innerHTML = null;
+    state = 'g';
     speed = 700;
     tetrisDirect = 0;
     brickH = 20;
